@@ -1,3 +1,10 @@
+/* Automated Coooling System Device that ables to control a cooling Fan. This device should have 3 LED lights to signify Temperature Levels
+Red- Hot/High temperature,
+Green- Room temperature/ Medium Temparature
+Yello- Cold/ lower than room Temperature.
+and a Buzzer that emits emergency Sound Signal if room teprature is below 27C or above 37C. 
+*/
+//---------------------------------------------------------------------------------------------------------------------------
 // Declare all the pins 
 int temp = A0;
 int greenLed = 6;
