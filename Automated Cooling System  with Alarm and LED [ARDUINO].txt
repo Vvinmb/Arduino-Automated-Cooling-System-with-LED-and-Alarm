@@ -1,8 +1,11 @@
-/* Automated Coooling System Device that ables to control a cooling Fan. This device should have 3 LED lights to signify Temperature Levels
+/* Automated Cooling System Device that ables to 
+control a cooling Fan. This device should have 3 LED lights 
+to signify Temperature Levels
 Red- Hot/High temperature,
 Green- Room temperature/ Medium Temparature
 Yello- Cold/ lower than room Temperature.
-and a Buzzer that emits emergency Sound Signal if room teprature is below 27C or above 37C. 
+and a Buzzer that emits emergency Sound Signal if 
+room teprature is below 27C or above 37C. 
 */
 //---------------------------------------------------------------------------------------------------------------------------
 // Declare all the pins 
@@ -37,10 +40,10 @@ void redLightOff(){
 	digitalWrite(redLed, LOW);
 }
 void fanOn(){
-	digitalWrite(fan, HIGH);
+	analogWrite (fan, 255);
 }
 void fanOff(){
-	digitalWrite(fan, LOW);
+	analogWrite (fan, 0);
 }
 void buzzerOn(){
 	noTone(buzzer);
@@ -58,6 +61,7 @@ void setup()
 {
   pinMode(redLed, OUTPUT);
   pinMode(greenLed, OUTPUT);
+  pinMode(yelLed, OUTPUT);
   pinMode(fan, OUTPUT);
   pinMode(buzzer, OUTPUT);
   pinMode(temp, INPUT);
@@ -76,12 +80,6 @@ void loop(){
   Serial.println(" Fahrenheit");
   
   // room temp = 20 to 25°C
-  /*Red- Hot/High temperature,
-Green- Room temperature/ Medium Temparature
-Yello- Cold/ lower than room Temperature.
-and a Buzzer that emits emergency Sound 
-Signal if room teprature is below 27C */
-  
   //Green On Room Temp
   if(celsius >= 20 && celsius <= 25){
     greenLightOn();
